@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Black Hat Hacker | محمد حسین</title>
+  <!-- فونت یکان باخ -->
+  <link href="https://cdn.fontcdn.ir/Font/Persian/Yekan-Bakh/Yekan-Bakh.css" rel="stylesheet">
+  <!-- آیکون فونت -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #00ffcc;
+      --dark: #121212;
+      --light: #f1f1f1;
+      --glass: rgba(255, 255, 255, 0.1);
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Yekan Bakh', sans-serif;
+      color: var(--light);
+      min-height: 100vh;
+      background: linear-gradient(-45deg, #1e1e1e, #2c2c2c, #3a3a3a, #1e1e1e);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* انیمیشن پس‌زمینه */
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* نوار ناوبری */
+    .navbar {
+      width: 100%;
+      padding: 1rem;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+    
+    .navbar h3 {
+      color: var(--primary);
+      text-align: center;
+    }
+    
+    /* محتوای اصلی */
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    /* کارت پروفایل */
+    .profile-card {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 1rem;
+      box-shadow: var(--shadow);
+      max-width: 500px;
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s;
+    }
+    
+    .profile-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s;
+    }
+    
+    .logo:hover {
+      transform: rotate(15deg) scale(1.05);
+      box-shadow: 0 0 20px var(--primary);
+    }
+    
+    h1 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+    }
+    
+    h2 {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+    
+    /* دکمه‌ها */
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 500px;
+    }
+    
+    .button-row {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .modern-button {
+      background: var(--primary);
+      color: var(--dark);
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+      flex: 1;
+      min-width: 150px;
+      max-width: 100%;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
+    }
+    
+    .modern-button:hover {
+      background: #00e6b8;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 255, 204, 0.4);
+    }
+    
+    /* شبکه‌های اجتماعی */
+    .social-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 2rem;
+    }
+    
+    .social-icon {
+      color: var(--light);
+      font-size: 1.5rem;
+      transition: all 0.3s;
+    }
+    
+    .social-icon:hover {
+      color: var(--primary);
+      transform: scale(1.2) translateY(-3px);
+    }
+    
+    /* ریسپانسیو برای موبایل */
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.1rem; }
+      
+      .button-row {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .modern-button {
+        width: 100%;
+      }
+      
+      .profile-card {
+        padding: 1.5rem;
+      }
+    }
+    
+    /* لودینگ اسکلتون (اختیاری) */
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s;
+    }
+    
+    .loading.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(0, 255, 204, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- لودینگ اسکلتون -->
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+  </div>
+  
+  <!-- نوار ناوبری -->
+  <nav class="navbar">
+    <h3>Black Hat Hacker</h3>
+  </nav>
+  
+  <!-- محتوای اصلی -->
+  <div class="container">
+    <div class="profile-card">
+      <!-- لوگو (اختیاری) -->
+      <!-- <img src="logo.jpg" alt="لوگو" class="logo"> -->
+      
+      <h1>Black Hat Hacker</h1>
+      <h2>محمد حسین</h2>
+      
+      <div class="button-container">
+        <div class="button-row">
+          <a href="https://t.me/HAKMARKETbot" class="modern-button">
+            <i class="fas fa-comment-dots"></i> اس ام اس بمبر
+          </a>
+          <a href="https://t.me/HAKMARKETbot" class="modern-button">
+            <i class="fas fa-code"></i> کد هنگی روبیکا
+          </a>
+        </div>
+        <div class="button-row">
+          <a href="https://t.me/HAKMARKETbot" class="modern-button">
+            <i class="fas fa-image"></i> تامنیل خام
+          </a>
+          <a href="https://t.me/HAKMARKETbot" class="modern-button">
+            <i class="fas fa-store"></i> HAKMARKET
+          </a>
+        </div>
+      </div>
+      
+      <div class="social-links">
+        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- اسکریپت برای لودینگ -->
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loading').classList.add('hidden');
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
